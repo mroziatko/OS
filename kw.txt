@@ -1,0 +1,23 @@
+1.
+UNIX ->	multiprocesorový a multipoužívateľský operačný systém
+
+shell -> jazyk na písanie skriptov, program na komunikáciu s počítačom na vytváranie funkcii
+skript -> je postupnosť príkazov vykonávajúca sa po sebe
+
+2.
+subor 	-> je postupnosť znakov s priamym prístupom ukončených EOF
+  		-> súbory sa líšia svojím použitím a vnútornou štruktúrou
+			® špeciálne súbory: sú to špecifické súbory pre OS UNIX, ktoré predstavujú fyzické zariadenia pripojené k počítaču. Súbor zabezpečuje prístup k pripojeným perifériám počítača
+			® ostatné súbory: súbory, ktoré z hľadiska ich použitia nemožno zaradiť ani do jednej z predch. skupín (sockety, pipe, linky, súbor zdieľaná pamäť)
+
+
+obycajny subor	->postupnosť údajov bez presne definovanej vnútornej štruktúry podporovanej systémom
+				->vytvára ich užívateľ  
+				->delí sa na:	-textové: súbory, ktoré obsahujú dolných 128 znakov ASCII tabuľky a sú vytvárané editorom alebo užívateľskými príkazmi (napr. c a t)
+								-binárne:  obsahujú inštrukcie v strojovom kóde a obsahujú  všetkých 256 znakov ASCII tabuľky
+				
+
+adresar	-> súbor, ktorý má presne definuvanu štruktúru podporovanú systémom
+		-> súbory na uchovanie informácií (mena súboru a číslo jeho i-uzla) o iných súboroch. Zabezpečuje väzbu medzi vonkajšou (logickou) a vnútornou (fyzickou) štruktúrou súborov.
+
+symbolicka linka	-> predstavuje subor, v ktorom je zapisana cesta k inemu suboru. Pri "normalnom" pouzivani sa symbolicka linka tvari ako subor, na ktory 							ukazuje. 
