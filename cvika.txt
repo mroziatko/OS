@@ -1,0 +1,138 @@
+1. OS cviko: 
+Prípravné zadanie: 
+
+zadaj_pz1
+otestuj_pz1
+odovzdaj_pz1
+
+do konca 6. týždňa 5 bodov
+koniec týždňa, Piatok 16:00
+
+Motivačné úlohy: 
+na konzutáciach, za úlohy
+max. 10 bodov 
+bonus k celkovému hodnoteniu
+
+Cvičenia:
+klúčové slová si pozrieť a pripraviť na ne
+na každom cvičení 3 pojmy
+Trestná úloha: 	náročnejšia úloha, referát, úvaha(v latexu), skripty, programovanie a pod
+				do 2 týždňov
+Bonusová úloha:	do 1 týždňa od zadania, na ďalšie cviko, zadáva cvičiaci
+
+Testy: 
+1. -> 4 týždeň
+2. -> 7 týždeň
+3. -> 11 týždeň
+
+študijné materiály:
+cd /home/OS
+
+vyhladavanie v manuali : /
+
+cat -> neodporuča sa, na výpis súboru
+more -> výpis súboru, dá sa výpis posúvať,, smerom hore nie
+less -> výpis súboru, da sa posuvať, vyhladavať, odporúča sa
+
+wc -> spočítava veci
+tr -> nahradzuje znaky
+diff -> porovnávanie
+cut -> výber úseku údajov
+awk -> nadstavbový jazyk
+sed -> náhrada znakov
+tee -> na rozdelovanie pipe-ov
+finger -> udaje o užívatelovi
+df -> práca so súborovým systémom
+du -> výpis udajov na disku
+bc -> využíva matematické funkcie
+exec -> vykonaj, pri find akcii, dostane sa do súboru a vieš pracovať s obsahom 
+
+grep -> dá sa vyhladávať? 
+
+2.cviko OS: 
+
+adresár /dev => hardwarove veci
+
+ctrl + a => rýchly začiatok riadku
+crtl + e => rýchly koniec riadku
+ctrl + w => vymazanie všetkého lavo od kurzora
+crtl + l => vymazanie obrazovky
+shift + pgup/pgdn => pohyb v termináli
+ctrl + d => end of file/ log out
+~/ subor.txt => vstup na svoj priečinok
+
+
+terminál => vzdialené interpretovanie vzdialených príkazov, je v priečinku /dev, reprezentovaný ako HW
+
+@ zoberie len ciselny znak
+set zoberie string
+`` subselect v UNIXE
+
+3. cviko OS
+
+Počet všetkých užívateľov
+	cut -d: -f1 /etc/passwd | more
+
+	wc -l < /etc/passwd  == efektívnejšie
+
+počet užívateľov ktorý začínajú na písmeno "b-B"
+	grep -ci "^b" /etc/passwd
+
+účty, ktoré sa aspoň raz prihlásili
+	grep -ci "^b" /etc/passwd | grep -vc 'nologin$'
+
+najpouzivanejsi shell 
+	cut -d '/' -f8 | sort | uniq -c | sort -n | tail -1 | cut -d " " -f3
+
+	cut -d ':' -f7 /etc/passwd | sort | uniq -c | sort | tail -1 | tr '/' '\n' | tail -1 == univerzalnejsie riesenie
+
+Vsetkych co pouyivaju bash/csh/tcsh
+	
+	grep -c '.csh\|bash$' /etc/passwd
+
+pocet znakov z pohladu shellu
+
+	set jozko = "Ahojte ziaci!"
+
+	echo  $jozko | tr -d '\n' | wc -c
+
+	echo -n $jozko | wc -c
+
+vytvorit subor '*'
+	
+	touch '*'
+
+najst subory ktore maju v mene *
+
+	find . -name '*\**'
+
+	-aj * aj \
+
+	find . -name '*\**' -or -name '*\\*'
+
+pre najdene subory spocitat riadky kde su v nazve * a \
+ 	
+	find . -name '*\**' -exec  -wc -l {} \; -or -name '*\\*' -exec  -wc -l {} \;
+
+Najmensi subor v aktualnom adresari	
+	
+	find -type f -printf '%s %f \n' | sort -n | tail -1 | cut -d ' ' -f2
+
+Riadok s najvacsim poctom slov
+	
+	grep -n = spocita pocet riadkov ---- ignore
+
+kolko slov sa zmeni ak skonvertujem male na velke pismena
+	
+	tr -c '[[:alpha:]]' '\n' < subor | grep -c '\[a-z\]' 
+
+vsetky subory, ktor0 su binarne a prazdne
+	
+	file `find /home/OS*predtest/vtupy-2/test5/ -empty` | grep 'data$'
+
+5.csh
+
+unset debug = ak bola inicializovana, tak vynulujem
+while($#argv >0) bude vykonavat, ked mam argumety
+argv = je pole argumentov (5.csh -d -s -sa == 4 argumenty)
+shift = posun dolava 
